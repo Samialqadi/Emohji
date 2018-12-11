@@ -3,6 +3,7 @@ package com.example.samialqadi.emohji;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,10 +19,16 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
+
 
 import static com.example.samialqadi.emohji.MainActivity.bitmap;
 import static com.example.samialqadi.emohji.MainActivity.emotionMap;
+import static com.example.samialqadi.emohji.MainActivity.URL;
 
 public class EmojiDisplay extends AppCompatActivity {
     ImageView imageView;
@@ -38,14 +45,8 @@ public class EmojiDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emoji_display);
+        //new RetrieveURLBitmap().execute(URL);
 
-        imageView = (ImageView) findViewById(R.id.userPhoto);
-
-        //supposed to get the bitmap from the other activity
-        Intent intent = getIntent();
-        //supposed to set the bitmap received to the image view
-        Log.d("Image", bitmap.toString());
-        imageView.setImageBitmap(bitmap);
         int index = 0;
         for (String emotion : emotionArr) {
             emojiMap.put(emotion, emojis[index]);
@@ -80,4 +81,38 @@ public class EmojiDisplay extends AppCompatActivity {
         });
 
     }
+
+    class RetrieveURLBitmap extends AsyncTask<String, String, String> {
+        Bitmap myBitmap;
+        ImageView imgView;
+
+        @Override
+        protected String doInBackground(String[] src) {
+            setContentView(R.layout.activity_emoji_display);
+            imgView = findViewById(R.id.userPhoto);
+            try {
+                URL url = new URL(src[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                myBitmap = BitmapFactory.decodeStream(input);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return "";
+        }
+
+        @Override
+        protected void onPostExecute(String x) {
+            if (myBitmap != null && imgView != null) {
+                imgView.setImageBitmap(bitmap);
+            }
+
+
+        }
+    }
 }
+
+
