@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Emohji</string>
     <string name="hereEmo">Heres your emoji.</string>
-    <string name="hereEmod">Heres your emoji in a different way.</string>
+    <string name="hereEmod"> </string>
     <string name="title_activity_emoji_display">EmojiDisplay</string>
     <string name="EmojiText">EmojiText</string>
 </resources>

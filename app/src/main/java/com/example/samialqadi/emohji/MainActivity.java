@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue queue;
     private String URL = "https://previews.123rf.com/images/deagreez/deagreez1608/deagreez160801143/61229745-portrait-of-handsome-cheerful-young-smiling-man-in-glasses.jpg";
     public static HashMap<String, Double> emotionMap = new HashMap<>();
-    private String[] emotionArr = {"anger", "contempt", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"};
+    public static String[] emotionArr = {"anger", "contempt", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"};
     JSONObject emotion = new JSONObject();
     Button openFile;
     ImageView imageView;

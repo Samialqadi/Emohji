@@ -49,7 +49,7 @@
         android:gravity="center"
         android:text="Emotion: " />
 
-    <EditText
+    <TextView
         android:id="@+id/hereEmod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="@string/hereEmod" />
+        android:text="" />
 
     <TextView
         android:id="@+id/inputAsc"
@@ -71,7 +71,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginBottom="156dp"
         android:gravity="center"
-        android:text="TextView" />
+        android:text="" />
 
     <Button
         android:id="@+id/generateEmoji"

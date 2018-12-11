@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
+
 import static com.example.samialqadi.emohji.MainActivity.bitmap;
 import static com.example.samialqadi.emohji.MainActivity.emotionMap;
 
@@ -25,6 +27,12 @@ public class EmojiDisplay extends AppCompatActivity {
     ImageView imageView;
     private static final String TAG = "Emohji:Main";
     private String max;
+    public static String[] emotionArr = {"anger", "contempt", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"};
+    public static String[] emojis = {"\uD83D\uDE21", "\uD83D\uDE27", "\uD83D\uDE16", "\uD83D\uDE31", "\uD83D\uDE00", "\uD83D\uDCA9", "\uD83D\uDE22", "\uD83E\uDD2F"};
+    public static String[] ascii = {"•`_´•", "\t( ͡° ʖ̯ ͡°)", "(´～ヾ )", "\\(°Ω°)/", "\t٩(^‿^)۶", "\t(｡◕‿‿◕｡)", "\t(︶︹︶)", "\t(๑•́ ヮ •̀๑)" };
+
+    private HashMap<String, String> emojiMap = new HashMap<>();
+    private HashMap<String, String> asciiMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,12 @@ public class EmojiDisplay extends AppCompatActivity {
         //supposed to set the bitmap received to the image view
         Log.d("Image", bitmap.toString());
         imageView.setImageBitmap(bitmap);
+        int index = 0;
+        for (String emotion : emotionArr) {
+            emojiMap.put(emotion, emojis[index]);
+            asciiMap.put(emotion, ascii[index]);
+            index++;
+        }
 
 
         Button EmojiButton = findViewById(R.id.generateEmoji);
@@ -54,8 +68,14 @@ public class EmojiDisplay extends AppCompatActivity {
                     }
                 }
 
-                TextView EmotionText = (TextView) findViewById(R.id.inputEmoji);
+                TextView EmotionText = findViewById(R.id.inputEmoji);
                 EmotionText.append(max);
+
+                TextView EmojiText = findViewById(R.id.hereEmod);
+                EmojiText.append(emojiMap.get(max));
+
+                TextView AsciiText = findViewById(R.id.inputAsc);
+                AsciiText.append(asciiMap.get(max));
             }
         });
 
