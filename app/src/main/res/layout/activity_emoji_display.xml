@@ -47,7 +47,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginBottom="233dp"
         android:gravity="center"
-        android:text="TextView" />
+        android:text="Emotion: " />
 
     <EditText
         android:id="@+id/hereEmod"
@@ -72,4 +72,12 @@
         android:layout_marginBottom="156dp"
         android:gravity="center"
         android:text="TextView" />
+
+    <Button
+        android:id="@+id/generateEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userPhoto"
+        android:layout_centerHorizontal="true"
+        android:text="Generate Emoji" />
 </RelativeLayout>
