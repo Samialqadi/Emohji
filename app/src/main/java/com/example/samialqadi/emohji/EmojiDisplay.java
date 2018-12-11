@@ -29,7 +29,7 @@ public class EmojiDisplay extends AppCompatActivity {
     private String max;
     public static String[] emotionArr = {"anger", "contempt", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"};
     public static String[] emojis = {"\uD83D\uDE21", "\uD83D\uDE27", "\uD83D\uDE16", "\uD83D\uDE31", "\uD83D\uDE00", "\uD83D\uDCA9", "\uD83D\uDE22", "\uD83E\uDD2F"};
-    public static String[] ascii = {"•`_´•", "\t( ͡° ʖ̯ ͡°)", "(´～ヾ )", "\\(°Ω°)/", "\t٩(^‿^)۶", "\t(｡◕‿‿◕｡)", "\t(︶︹︶)", "\t(๑•́ ヮ •̀๑)" };
+    public static String[] ascii = {"•`_´•", "( ͡° ʖ̯ ͡°)", "(´～ヾ )", "(°Ω°)/", "٩(^‿^)۶", "(｡◕‿‿◕｡)", "(︶︹︶)", "(๑•́ ヮ •̀๑)" };
 
     private HashMap<String, String> emojiMap = new HashMap<>();
     private HashMap<String, String> asciiMap = new HashMap<>();

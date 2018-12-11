@@ -47,7 +47,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginBottom="233dp"
         android:gravity="center"
-        android:text="Emotion: " />
+        android:text="" />
 
     <TextView
         android:id="@+id/hereEmod"
